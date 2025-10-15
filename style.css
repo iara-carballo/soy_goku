@@ -1,13 +1,97 @@
+/* ------------------------------ */
+/* Fondo de la página con imagen y overlay */
+/* ------------------------------ */
 body {
   font-family: Arial, sans-serif;
   text-align: center;
-  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-image: url("fondo_de_pantalla.jpg"); /* tu imagen de fondo */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  overflow-x: hidden; /* evita scroll horizontal */
 }
 
+/* Overlay semi-transparente */
+.overlay {
+  position: absolute; /* permite scroll */
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+  background-color: rgba(255, 245, 226, 0.486); /* 40% de opacidad */
+  z-index: 0; /* detrás del contenido */
+}
+
+/* ------------------------------ */
+/* Header y contenido por encima del overlay */
+/* ------------------------------ */
+.header {
+  position: relative;
+  z-index: 1; /* todo dentro estará sobre el overlay */
+  background-color: rgba(255, 255, 255, 0.516); /* semi-transparente */
+  display: inline-block;
+  padding: 7px;
+  border-radius: 5px;
+  margin-top: 40px;
+}
+
+/* Texto "Hola, soy Goku" */
 h1 {
-  color: #0077ff;
+  color: #ffff00;
+  font-size: 50px;
+  text-shadow:
+     -2px -2px 0 #000,
+      2px -2px 0 #000,
+     -2px  2px 0 #000,
+      2px  2px 0 #000,
+     -4px  0 0 #000,
+      4px  0 0 #000,
+      0 -4px 0 #000,
+      0  4px 0 #000;
+  margin-bottom: 7px;
 }
 
+/* Texto "Bienvenidos al repo" */
+p {
+  color: #ff0000;
+  font-size: 20px;
+  text-shadow:
+     -1px -1px 0 #000,
+      1px -1px 0 #000,
+     -1px  1px 0 #000,
+      1px  1px 0 #000;
+  margin-top: 0;
+}
+
+h4 {
+  color: #ffa600;
+  font-size: 17px;
+  text-shadow:
+     -1px -1px 0 #000,
+      1px -1px 0 #000,
+     -1px  1px 0 #000,
+      1px  1px 0 #000;
+  margin-top: -10px;
+}
+
+w {
+    color: #ffa200;
+  font-size: 15px;
+  text-shadow:
+     -1px -1px 0 #000,
+      1px -1px 0 #000,
+     -1px  1px 0 #000,
+      1px  1px 0 #000;
+    margin-top: 0;
+    }
+
+/* ------------------------------ */
+/* Botón "Ver más" */
+/* ------------------------------ */
 button {
   padding: 10px 20px;
   background-color: #0077ff;
@@ -15,8 +99,59 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin-top: 20px;
+  position: relative; /* sobre overlay */
+  z-index: 1;
 }
 
 button:hover {
   background-color: #005fcc;
 }
+
+/* ------------------------------ */
+/* Imagen de Goku */
+/* ------------------------------ */
+img {
+  display: block;
+  margin: 20px auto;
+  border: 3px solid #0077ff;
+  border-radius: 10px;
+  position: relative;
+  z-index: 1; /* encima del overlay */
+}
+
+/* ------------------------------ */
+/* Barra horizontal detrás de "Bienvenidos" */
+/* Opcional: si quiero un fondo como línea detrás del texto */
+/* ------------------------------ */
+p {
+  position: relative;
+  display: inline-block;
+  padding: 5px;
+}
+
+.mensaje {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  color: #000;
+  font-size: 20px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  z-index: 999;
+  animation: fadeInOut 15s ease-in-out;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translate(-50%, 20px); }
+  10%, 90% { opacity: 1; transform: translate(-50%, 0); }
+  100% { opacity: 0; transform: translate(-50%, -20px); }
+}
+
+
+
+
+
